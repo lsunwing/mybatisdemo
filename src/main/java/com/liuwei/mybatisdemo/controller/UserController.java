@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping("/queryAllUsers")
     @ResponseBody
     public List<User> queryAllUsers() {
-        logger.info("queryAllUsers begin...");
+        logger.info("queryAllUsers begin......");
 
         return userService.queryAllUsers();
     }
