@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.liuwei.mybatisdemo.mapper.StaffMapper">
+
+    <!-- 别名在mybatis-config.xml中配置 -->
+    <resultMap id="staffMap" type="com.liuwei.mybatisdemo.dao.entity.Staff">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+    </resultMap>
+
+    <select id="selectAllStaffs" resultType="com.liuwei.mybatisdemo.dao.entity.Staff">
+        select * from staff
+    </select>
+
+    <select id="selectAllStaffs" resultMap="staffMap">
+        select * from staff
+    </select>
+
+</mapper>
