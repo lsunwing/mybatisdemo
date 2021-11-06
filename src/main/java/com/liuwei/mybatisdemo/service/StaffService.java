@@ -6,6 +6,7 @@ import com.liuwei.mybatisdemo.dao.entity.Staff;
 
 public interface StaffService {
 
-    List<Staff> queryAllStaffs();
+    List<Staff> queryAll();
 
+    List<Staff> queryAllStaffs();
 }

@@ -8,5 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface StaffMapper {
 
+    List<Staff> selectAll();
+
     List<Staff> selectAllStaffs();
 }

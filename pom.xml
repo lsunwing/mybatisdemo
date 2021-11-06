@@ -51,6 +51,12 @@
 			</exclusions>
 		</dependency>
 
+		<!-- spring security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 		<!-- log4j2 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -62,6 +68,13 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<!-- druid -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.1.12</version>
 		</dependency>
 	</dependencies>
 
