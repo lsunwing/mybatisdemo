@@ -10,7 +10,7 @@
         <result column="sex" property="sex"/>
     </resultMap>
 
-    <select id="selectAllStaffs" resultType="com.liuwei.mybatisdemo.dao.entity.Staff">
+    <select id="selectAll" resultType="com.liuwei.mybatisdemo.dao.entity.Staff">
         select * from staff
     </select>
 
