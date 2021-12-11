@@ -7,8 +7,48 @@
     <resultMap id="staffMap" type="com.liuwei.mybatisdemo.dao.entity.Staff">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
-        <result column="sex" property="sex"/>
+        <result column="contactNum" property="contact_num"/>
+        <result column="inductionDate" property="induction_date"/>
+        <result column="leaveDate" property="leave_date"/>
+        <result column="emContactNum" property="em_contact_num"/>
+        <result column="createDate" property="create_date"/>
+        <result column="updateUate" property="update_date"/>
     </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,sex,birthday,contact_num,induction_date,leave_date,address,em_contact_num,create_date,update_date,comment
+    </sql>
+
+    <!-- 别名在mybatis-config.xml中配置 -->
+    <!-- 新增 -->
+    <insert id="insertStaff" parameterType="Staff">
+        insert into staff(name,sex,birthday,contact_num,induction_date,leave_date,address,em_contact_num,create_date,update_date,comment)
+        values (#{name},
+                #{sex},
+                #{birthday},
+                #{contact_num},
+                #{induction_date},
+                #{leave_date},
+                #{address},
+                #{em_contact_num},
+                #{create_date},
+                #{update_date},
+                #{comment})
+    </insert>
+
+    <!--更新-->
+    <update id="updateStaff" parameterType="Staff">
+        update menu
+           set name = #{name}, path = #{path}, parent_id=#{parent_id}, staff_id=#{staff_id},
+                      create_date = #{create_date}, update_date = #{update_date}, comment=#{comment}
+         where id=#{id}
+    </update>
+
+    <!-- 删除 -->
+    <delete id="deleteOne" parameterType="int">
+        delete from menu where id=#{id}
+
+    </delete>
 
     <select id="selectAll" resultType="com.liuwei.mybatisdemo.dao.entity.Staff">
         select * from staff

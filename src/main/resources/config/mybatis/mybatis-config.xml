@@ -4,4 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <typeAliases>
+        <typeAlias alias="Menu" type="com.liuwei.mybatisdemo.dao.entity.Menu"/>
+        <typeAlias alias="Staff" type="com.liuwei.mybatisdemo.dao.entity.Staff"/>
+        <typeAlias alias="Role" type="com.liuwei.mybatisdemo.dao.entity.Role"/>
+        <typeAlias alias="User" type="com.liuwei.mybatisdemo.dao.entity.User"/>
+    </typeAliases>
+
 </configuration>

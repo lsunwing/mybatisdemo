@@ -26,6 +26,6 @@ public class SessionInterceptor implements HandlerInterceptor {
         } catch (IOException e) {
             logger.error("跳转到登录页面异常, e={}", e);
         }
-        return false;
+        return true;
     }
 }

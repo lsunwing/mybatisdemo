@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 public class HomePage implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-        Runtime.getRuntime().exec("cmd  /c start http://localhost:8080/mybatisdemo/user/queryAllUsers");
+        //Runtime.getRuntime().exec("cmd  /c start http://localhost:8080/mybatisdemo/user/queryAllUsers");
+        Runtime.getRuntime().exec("cmd  /c start http://localhost:8080/user/queryAllUsers");
     }
 }

@@ -13,6 +13,11 @@ public class StaffDaoImpl implements StaffDao {
     @Autowired
     StaffMapper staffMapper;
 
+    public int insert(Staff staff){
+
+        return 0;
+    }
+
     @Override
     public List<Staff> selectAll() {
         return staffMapper.selectAll();
