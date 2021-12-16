@@ -1,56 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.liuwei.mybatisdemo.mapper.StaffMapper">
+<mapper namespace="com.liuwei.yeb.api.mapper.StaffMapper">
 
     <!-- 别名在mybatis-config.xml中配置 -->
-    <resultMap id="staffMap" type="com.liuwei.mybatisdemo.dao.entity.Staff">
+    <resultMap id="staffMap" type="com.liuwei.yeb.api.entity.Staff">
         <id column="id" property="id"/>
-        <result column="name" property="name"/>
-        <result column="contactNum" property="contact_num"/>
-        <result column="inductionDate" property="induction_date"/>
-        <result column="leaveDate" property="leave_date"/>
-        <result column="emContactNum" property="em_contact_num"/>
+        <result column="inDate" property="in_date"/>
+        <result column="outDate" property="out_date"/>
+        <result column="emMobile" property="em_mobile"/>
         <result column="createDate" property="create_date"/>
-        <result column="updateUate" property="update_date"/>
+        <result column="updateDate" property="update_date"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,name,sex,birthday,contact_num,induction_date,leave_date,address,em_contact_num,create_date,update_date,comment
+        id,name,gender,birthday,mobile,in_date,out_date,address,em_mobile,create_date,update_date,comment
     </sql>
 
     <!-- 别名在mybatis-config.xml中配置 -->
     <!-- 新增 -->
-    <insert id="insertStaff" parameterType="Staff">
-        insert into staff(name,sex,birthday,contact_num,induction_date,leave_date,address,em_contact_num,create_date,update_date,comment)
+    <insert id="insertStaff" parameterType="com.liuwei.yeb.api.entity.Staff">
+        insert into staff(name,gender,birthday,mobile,in_date,out_date,address,em_mobile,create_date,update_date,comment)
         values (#{name},
-                #{sex},
+                #{gender},
                 #{birthday},
-                #{contact_num},
-                #{induction_date},
-                #{leave_date},
+                #{mobile},
+                #{inDate},
+                #{outDate},
                 #{address},
-                #{em_contact_num},
-                #{create_date},
-                #{update_date},
+                #{emMobile},
+                #{createDate},
+                #{updateDate},
                 #{comment})
     </insert>
 
     <!--更新-->
-    <update id="updateStaff" parameterType="Staff">
-        update menu
-           set name = #{name}, path = #{path}, parent_id=#{parent_id}, staff_id=#{staff_id},
-                      create_date = #{create_date}, update_date = #{update_date}, comment=#{comment}
-         where id=#{id}
+    <update id="updateStaff" parameterType="com.liuwei.yeb.api.entity.Staff">
+        update STAFF
+           set name = #{name}, gender=#{gender},birthday=#{birthday},address=#{address},in_date=#{inDate},out_date=#{outDate},
+                      create_date = #{createDate}, update_date = #{updateDate}, comment=#{comment}
+         where STAFF_ID=#{staffId}
     </update>
 
     <!-- 删除 -->
-    <delete id="deleteOne" parameterType="int">
-        delete from menu where id=#{id}
+    <delete id="del" parameterType="int">
+        delete from staff where STAFF_ID=#{staffId}
 
     </delete>
 
-    <select id="selectAll" resultType="com.liuwei.mybatisdemo.dao.entity.Staff">
+    <select id="selectAll" resultType="com.liuwei.yeb.api.entity.Staff">
         select * from staff
     </select>
 

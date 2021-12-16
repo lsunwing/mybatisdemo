@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.liuwei.mybatisdemo.mapper.UserMapper">
+<mapper namespace="com.liuwei.yeb.mapper.UserMapper">
 
     <!-- user:别名  在mybatis-config.xml中配置 -->
-    <resultMap id="userMap" type="com.liuwei.mybatisdemo.dao.entity.User">
+    <resultMap id="userMap" type="com.liuwei.yeb.dao.entity.User">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
-        <result column="sex" property="sex"/>
+        <result column="gender" property="gender"/>
     </resultMap>
 
-    <select id="selectAllUsers" resultType="com.liuwei.mybatisdemo.dao.entity.User">
+    <select id="selectAllUsers" resultType="com.liuwei.yeb.dao.entity.User">
         select * from user
     </select>
 

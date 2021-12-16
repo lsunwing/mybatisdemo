@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.liuwei.mybatisdemo.mapper.PrivMapper">
+<mapper namespace="com.liuwei.yeb.mapper.PrivMapper">
 
     <!-- 别名在mybatis-config.xml中配置 -->
-    <resultMap id="staffMenuMap" type="com.liuwei.mybatisdemo.dao.entity.Menu">
+    <resultMap id="staffMenuMap" type="com.liuwei.yeb.api.entity.Menu">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
     </resultMap>
