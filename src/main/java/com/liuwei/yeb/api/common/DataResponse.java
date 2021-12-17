@@ -1,23 +1,18 @@
 package com.liuwei.yeb.api.common;
 
-import java.util.HashMap;
-
-public class YebResponse<T> {
+public class DataResponse<T> {
     private static final long serialVersionUID = -8400788480891230056L;
 
     String code;
     String msg;
     T data;
 
-    public YebResponse() {
-    }
-
-    public YebResponse(String code, String msg) {
+    public DataResponse(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public YebResponse(String code, String msg, T data) {
+    public DataResponse(String code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;

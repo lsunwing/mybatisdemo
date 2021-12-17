@@ -3,7 +3,7 @@ package com.liuwei.yeb.api.controller;
 
 import java.util.List;
 
-import com.liuwei.yeb.api.common.YebResponse;
+import com.liuwei.yeb.api.common.DataResponse;
 import com.liuwei.yeb.api.entity.Staff;
 import com.liuwei.yeb.api.service.impl.StaffServiceImpl;
 import org.slf4j.Logger;
@@ -35,16 +35,16 @@ public class StaffController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public YebResponse<String> addStaff(@RequestBody Staff staff) {
+    public DataResponse<String> addStaff(@RequestBody Staff staff) {
         System.out.println(staff);
         staffService.saveOrUpdate(staff);
-        return new YebResponse("0000", "success");
+        return new DataResponse("0000", "success");
     }
 
     @RequestMapping("/list")
     @ResponseBody
-    public YebResponse list() {
+    public DataResponse list() {
         List<Staff> list = staffService.list();
-        return new YebResponse("0000", "success", list);
+        return new DataResponse("0000", "success", list);
     }
 }
