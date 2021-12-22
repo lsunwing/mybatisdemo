@@ -1,8 +1,17 @@
 package com.liuwei.yeb.api.controller;
 
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liuwei.yeb.api.common.DataResponse;
+import com.liuwei.yeb.api.entity.request.StaffForm;
+import com.liuwei.yeb.api.entity.response.PageInfo;
+import com.liuwei.yeb.api.entity.response.PageResponse;
 import com.liuwei.yeb.api.entity.Staff;
 import com.liuwei.yeb.api.service.impl.StaffServiceImpl;
 import org.slf4j.Logger;
@@ -58,15 +67,29 @@ public class StaffController {
 
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
-    public DataResponse list(@RequestBody Staff staff) {
-        System.out.println(staff);
+    public PageResponse list(@RequestBody StaffForm staffForm, HttpServletRequest request) {
+        System.out.println(staffForm);
+
         QueryWrapper<Staff> wrapper = new QueryWrapper<>();
-        if (StringUtils.hasText(staff.getStaffName())) {
-            wrapper.eq("STAFF_NAME", staff.getStaffName());
+        if (StringUtils.hasText(staffForm.getStaffName())) {
+            wrapper.eq("STAFF_NAME", staffForm.getStaffName());
         }
-        if (StringUtils.hasText(staff.getGender())) {
-            wrapper.eq("GENDER", staff.getGender());
+        if (StringUtils.hasText(staffForm.getGender())) {
+            wrapper.eq("GENDER", staffForm.getGender());
         }
-        return new DataResponse("0000", "list success", staffService.list(wrapper));
+        wrapper.orderByAsc("STAFF_ID");
+
+        IPage<Staff> page = new Page<>(staffForm.getCurrentPage(), staffForm.getPageSize());
+
+        // 分页查询
+        IPage<Staff> pageResult = staffService.page(page, wrapper);
+        // 分页查询结果集
+        List<Staff> list = pageResult.getRecords();
+
+        // 分页返回信息
+        PageInfo pageInfo = new PageInfo(staffForm.getCurrentPage(), staffForm.getPageSize(), staffService.count());
+        // 分页响应数据
+        return new PageResponse(pageInfo, list);
+
     }
 }
