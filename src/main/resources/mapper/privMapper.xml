@@ -3,14 +3,5 @@
 
 <mapper namespace="com.liuwei.yeb.mapper.PrivMapper">
 
-    <!-- 别名在mybatis-config.xml中配置 -->
-    <resultMap id="staffMenuMap" type="com.liuwei.yeb.api.entity.Menu">
-        <id column="id" property="id"/>
-        <result column="name" property="name"/>
-    </resultMap>
-
-    <select id="selectMenuListByStaffId" resultType="java.util.Map">
-        select * from menu a, staff b
-    </select>
 
 </mapper>

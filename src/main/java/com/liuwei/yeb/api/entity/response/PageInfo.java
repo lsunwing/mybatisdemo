@@ -3,6 +3,11 @@ package com.liuwei.yeb.api.entity.response;
 public class PageInfo {
 
     /**
+     * 当前页
+     */
+    long currentPage;
+
+    /**
      * 第几页
      */
     long pages;
@@ -18,9 +23,18 @@ public class PageInfo {
     long count;
 
     public PageInfo(long pages, long pageSize, long count) {
+        this.currentPage = pages;
         this.pages = pages;
         this.pageSize = pageSize;
         this.count = count;
+    }
+
+    public long getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(long currentPage) {
+        this.currentPage = currentPage;
     }
 
     public long getCount() {

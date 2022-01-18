@@ -1,4 +1,4 @@
-package com.liuwei.yeb.service;
+package com.liuwei.yeb.api.service;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

@@ -3,21 +3,6 @@
 
 <mapper namespace="com.liuwei.yeb.mapper.UserMapper">
 
-    <!-- user:别名  在mybatis-config.xml中配置 -->
-    <resultMap id="userMap" type="com.liuwei.yeb.dao.entity.User">
-        <id column="id" property="id"/>
-        <result column="name" property="name"/>
-        <result column="gender" property="gender"/>
-    </resultMap>
-
-    <select id="selectAllUsers" resultType="com.liuwei.yeb.dao.entity.User">
-        select * from user
-    </select>
-
-    <select id="getUsers" resultMap="userMap">
-        select * from user
-    </select>
-
     <!-- 指定 resultType 返回值类型时 String 类型的，
         string 在这里是一个别名，代表的是 java.lang.String
         对于引用数据类型，都是将大写字母转小写，比如 HashMap 对应的别名是 'hashmap'

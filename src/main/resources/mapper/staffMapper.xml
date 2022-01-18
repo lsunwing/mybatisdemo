@@ -3,57 +3,19 @@
 
 <mapper namespace="com.liuwei.yeb.api.mapper.StaffMapper">
 
-    <!-- 别名在mybatis-config.xml中配置 -->
-    <resultMap id="staffMap" type="com.liuwei.yeb.api.entity.Staff">
-        <id column="id" property="id"/>
-        <result column="inDate" property="in_date"/>
-        <result column="outDate" property="out_date"/>
-        <result column="emMobile" property="em_mobile"/>
-        <result column="createDate" property="create_date"/>
-        <result column="updateDate" property="update_date"/>
-    </resultMap>
-
-    <sql id="Base_Column_List">
-        id,name,gender,birthday,mobile,in_date,out_date,address,em_mobile,create_date,update_date,comment
-    </sql>
-
-    <!-- 别名在mybatis-config.xml中配置 -->
-    <!-- 新增 -->
-    <insert id="insertStaff" parameterType="com.liuwei.yeb.api.entity.Staff">
-        insert into staff(name,gender,birthday,mobile,in_date,out_date,address,em_mobile,create_date,update_date,comment)
-        values (#{name},
-                #{gender},
-                #{birthday},
-                #{mobile},
-                #{inDate},
-                #{outDate},
-                #{address},
-                #{emMobile},
-                #{createDate},
-                #{updateDate},
-                #{comment})
-    </insert>
-
-    <!--更新-->
-    <update id="updateStaff" parameterType="com.liuwei.yeb.api.entity.Staff">
-        update STAFF
-           set name = #{name}, gender=#{gender},birthday=#{birthday},address=#{address},in_date=#{inDate},out_date=#{outDate},
-                      create_date = #{createDate}, update_date = #{updateDate}, comment=#{comment}
-         where STAFF_ID=#{staffId}
-    </update>
-
-    <!-- 删除 -->
-    <delete id="del" parameterType="int">
-        delete from staff where STAFF_ID=#{staffId}
-
-    </delete>
-
-    <select id="selectAll" resultType="com.liuwei.yeb.api.entity.Staff">
-        select * from staff
+    <select id="selectStaff" resultType="com.liuwei.yeb.api.entity.Staff">
+        select * from t_staff where 1=1
+        <if test="staffName!=null and staffName!=''">
+        and staff_name = #{staffName}
+        </if>
     </select>
 
-    <select id="selectAllStaffs" resultMap="staffMap">
-        select * from staff
+    <select id="selectStaffByMap" resultType="com.liuwei.yeb.api.entity.Staff" parameterType="java.util.Map">
+
+        select * from t_staff where 1=1
+        <if test="arg1.staffName!=null and arg1.staffName!=''">
+            and staff_name = #{arg1.staffName}
+        </if>
     </select>
 
 </mapper>

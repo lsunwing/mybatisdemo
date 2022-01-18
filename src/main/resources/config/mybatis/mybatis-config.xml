@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-    <typeAliases>
-        <typeAlias alias="Menu" type="com.liuwei.yeb.api.entity.Menu"/>
-        <typeAlias alias="Staff" type="com.liuwei.yeb.api.entity.Staff"/>
-    </typeAliases>
+    <!--<typeAliases>-->
+        <!--<typeAlias alias="Menu" type="com.liuwei.yeb.api.entity.Menu"/>-->
+        <!--<typeAlias alias="Staff" type="com.liuwei.yeb.api.entity.Staff"/>-->
+    <!--</typeAliases>-->
 
 </configuration>

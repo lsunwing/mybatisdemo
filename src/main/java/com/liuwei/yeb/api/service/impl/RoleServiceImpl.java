@@ -1,7 +1,10 @@
 package com.liuwei.yeb.api.service.impl;
 
+import java.util.List;
+
 import com.liuwei.yeb.api.entity.Role;
 import com.liuwei.yeb.api.mapper.RoleMapper;
+import com.liuwei.yeb.api.mapper.StaffMapper;
 import com.liuwei.yeb.api.service.IRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -16,5 +19,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IRoleService {
+
+    private RoleMapper roleMapper;
 
 }

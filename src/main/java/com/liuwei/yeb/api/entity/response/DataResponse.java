@@ -1,4 +1,4 @@
-package com.liuwei.yeb.api.common;
+package com.liuwei.yeb.api.entity.response;
 
 public class DataResponse<T> {
     private static final long serialVersionUID = -8400788480891230056L;
